@@ -49,5 +49,5 @@ def gen_data():
         return "An error occurred during data generation."
 
 if __name__ == "__main__":
-    from keyword_extractor import get_trending searches
+    from keyword_extractor import get_trending_searches
     app.run(host="0.0.0.0")
