@@ -7,7 +7,7 @@ import logging
 # Configure logging
 logging.basicConfig(filename='app_log.log', level=logging.DEBUG)
 
-phrase_generator = pickle.load(open("/config/workspace/model/keyword_extractor.pkl", "rb"))
+phrase_generator = pickle.load(open("model/keyword_extractor.pkl", "rb"))
 application = Flask(__name__)
 app = application
 
