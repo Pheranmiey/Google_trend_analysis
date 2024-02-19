@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML API</title>
+    <style>
+        body {
+            background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+        }
+        .result-container {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Results</h1>
+        <div id="result-table"></div>
+    </div>
+
+    <script>
+        var result = {{ result | tojson | safe }};
+        
+        if (result !== 'No data') {
+            var table = "<table border='1'>";
+            
+            // Assuming result is an array of objects with key-value pairs
+            result.forEach(function(row) {
+                table += "<tr>";
+                for (var key in row) {
+                    table += "<td>" + key + ": " + row[key] + "</td>";
+                }
+                table += "</tr>";
+            });
+
+            table += "</table>";
+
+            document.getElementById("result-table").innerHTML = table;
+        } else {
+            document.getElementById("result-table").innerHTML = "<p>No data available</p>";
+        }
+    </script>
+</body>
+</html>
