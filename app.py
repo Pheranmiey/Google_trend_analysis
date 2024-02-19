@@ -8,8 +8,7 @@ import logging
 logging.basicConfig(filename='app_log.log', level=logging.DEBUG)
 
 phrase_generator = pickle.load(open("model/keyword_extractor.pkl", "rb"))
-application = Flask(__name__)
-app = application
+app = Flask(__name__)
 
 @app.route('/')
 def index():
